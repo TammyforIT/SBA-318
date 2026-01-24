@@ -8,12 +8,31 @@
   <h1>NY Lottery Results</h1>
 
   <form action="/api/lottery" method="GET">
-    <input name="game" placeholder="Powerball or Mega Millions">
+    <input id="search" name="game" placeholder="Powerball or Mega Millions">
     <button>Search</button>
   </form>
 
-  <ul>
-    #list#
-  </ul>
+  <div id="results">
+    <ul>
+      #list#
+    </ul>
+  </div>
+
+  <script>
+    const search = document.getElementById("search");
+    const results = document.getElementById("results");
+
+    search.addEventListener("input", () => {
+      const term = search.value.toLowerCase();
+      const items = results.querySelectorAll("li");
+
+      items.forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(term)
+          ? "block"
+          : "none";
+      });
+    });
+  </script>
+
 </body>
 </html>
