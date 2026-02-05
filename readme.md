@@ -1,1 +1,1 @@
-the backend
+making a basic lottery api that has routes to separate the reqs.
